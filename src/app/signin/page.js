@@ -90,7 +90,7 @@ export default function SignIn() {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/signin`
+          redirectTo: process.env.NEXT_PUBLIC_SITE_URL || window.location.origin + '/signin'
         }
       });
 
